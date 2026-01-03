@@ -1,12 +1,18 @@
+import Navbar from "./layout/Navbar"
+import Hero from "./sections/Hero"
+
+
 function App() {
  
 
   return (
-    <>
-      <div className="text-4xl text-green-700 hover:text-green-600">
-	  APP
-      </div>
-    </>
+    <div className="min-h-screen overflow-x-hidden">
+      <Navbar />
+      <main>
+        <Hero/>
+      </main>
+
+    </div>
   )
 }
 
