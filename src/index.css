@@ -54,6 +54,12 @@
       text-shadow: 0 0 30px
         color-mix(in srgb, var(--color-primary) 50%, transparent);
     }
+
+    .glow-border {
+      box-shadow: 0 0 20px 
+        color-mix(in srgb, var(--color-primary) 15%, transparent),
+        inset 0 0 20px color-mix(in srgb, var(--color-primary) 5%, transparent) ;
+    }
   }
 }
 
@@ -89,8 +95,23 @@
     
   }
 
+  @keyframes marquee {
+    0%{
+      transform: translateX(0);
+    }
+    100%{
+      transform: translateX(-50%);
+    }
+    
+    
+  }
+
   .animate-fade-in {
     animation: fade-in 0.8s ease-out both;
+  }
+
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
   }
 
   .animation-delay-100 {
@@ -112,9 +133,38 @@
     animation-delay: 800ms;
   }
 
+  /* animation on hover over the button */
+  @keyframes animated-border {
+    0% {
+      stroke-dashoffset:400;
+    }
+    100% {
+      stroke-dashoffset: -550;
+    }
+  }
+
+  .group:hover .animated-border-path  {
+    animation: animated-border 1.5s linear infinite ;
+  }
+
   .animated-border:hover {
     background-color: color-mix(in srgb, #26c4b8 15%, transparent );
     backdrop-filter: blur(16px);
     box-shadow: 0 0 20px color-mix(in srgb, #26c4b8 20%, transparent);
+  }
+
+  @keyframes float {
+    0%,
+    100%{
+      transform: translateY(0);
+    }
+    50%{
+      transform: translateY(-10px);
+    }
+    
+  }
+
+  .animate-float {
+    animation: float 5s ease-out infinite;
   }
 }

@@ -1,27 +1,20 @@
-import { ArrowRight, Download, } from "lucide-react";
+import { ArrowRight, ChevronDown, Download, } from "lucide-react";
 import Button from "../components/Button";
 import AnimatedBodrderButton from "../components/AnimatedBodrderButton";
 import { BsGithub, BsLinkedin, BsTwitterX } from "react-icons/bs";
 
 const skills = [
   "React",
-  "Next.js",
+  "JavaScript",
   "TypeScript",
-  "Node.js",
-  "GraphQL",
-  "PostgreSQL",
-  "MongoDB",
-  "Redis",
-  "Docker",
-  "AWS",
-  "Vercel",
   "Tailwind CSS",
-  "Prisma",
-  "Jest",
-  "Cypress",
+  "Node.js",
+  "MongoDB",
+  "Vercel",
   "Figma",
   "Git",
   "GitHub Actions",
+  "Next.js",
 ];
 
 const Hero = () => {
@@ -41,13 +34,15 @@ const Hero = () => {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(40)].map((_, i) => (
           <div
+            key={i}
             className="absolute w-1.5 h-1.5 rounded-full opacity-60"
             style={{
               backgroundColor: "#20B2A6",
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animation: `slow-drift ${15 + Math.random() * 20
-                }s ease-in-out infinite`,
+              animation: `slow-drift ${
+                15 + Math.random() * 20
+              }s ease-in-out infinite`,
               animationDelay: `${Math.random() * 5}s`,
             }}
           />
@@ -78,14 +73,14 @@ const Hero = () => {
                 </span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-300">
-                Hi, I'm Gourav - a Frontend Software Engineer specializing in
-                React, Tailwindcss, and Javascript. I build scalable, performant
-                web applications that users love.
+                Hi, I'm Gourav - Frontend Software Engineer building sleek,
+                scalable web apps with React, Tailwind CSS, and JavaScript
+                — where performance meets great UX.
               </p>
             </div>
 
             {/* CTA buttons */}
-            <div className=" animate-fade-in aniamtion-delay-500">
+            <div className="flex flex-wrap gap-4 animate-fade-in aniamtion-delay-500">
               <Button size="lg" className="">
                 Contect me <ArrowRight className="w-5 h-5" />
               </Button>
@@ -116,7 +111,7 @@ const Hero = () => {
           </div>
 
           {/* Right column - image / profile */}
-          <div className="relatice animate-fade-in animation-delay-300">
+          <div className="relative animate-fade-in animation-delay-300">
             {/* profile Image */}
             <div className="relative max-w-md mx-auto">
               <div className="realtive glass rounded-3xl p-2 glow-border">
@@ -135,7 +130,7 @@ const Hero = () => {
                     </span>
                   </div>
                 </div>
-                {/* Dtate badge */}
+                {/* State badge */}
                 <div className="absolute -top-4 -left-4 glass rounded-xl px-4 py-3 animate-float animation-delay-500">
                   <div className="text-2xl font-bold text-primary">fresher</div>
                   <span className="text-xs text-muted-foreground">
@@ -152,14 +147,6 @@ const Hero = () => {
             Technologies I work with
           </p>
           <div className="relative overflow-hidden">
-            <div
-              className="absolute left-0 top-0 bottom-0 w-32 
-            bg-linear-to-r from-background to-transparent z-10 "
-            />
-            <div
-              className="absolte right-0 top-0 bottom-0 w-32
-            bg-linear-to-l from-background to-transparent z-10 "
-            />
             <div className="flex animate-marquee">
               {[...skills, ...skills].map((skill, idx) => (
                 <div key={idx} className="shrink-0 px-8 py-4 ">
@@ -171,6 +158,17 @@ const Hero = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* scroll button */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 aniamte-fade-in animation-delay-800 z-10">
+        <a
+          href="#about"
+          className="flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground"
+        >
+          <span className="text-xs uppercase tracking-wider">Scroll</span>
+          <ChevronDown className="w-6 h-6 animate-bounce" />
+        </a>
       </div>
     </section>
   );
