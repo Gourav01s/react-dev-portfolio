@@ -1,3 +1,7 @@
+import { ArrowUpRight } from "lucide-react";
+import { BsGithub } from "react-icons/bs";
+import AnimatedBodrderButton from "../components/AnimatedBodrderButton";
+
 const projects = [
   {
     title: "Fintech Dashboard",
@@ -76,11 +80,57 @@ const Projects = () => {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-tarnsform duration-700"
+                  className="w-full h-full object-cover transition-tarnsform duration-700 group-hover:scale-110 "
                 />
+                <div
+                  className="absolute inset-0 bg-linear-to-t from-card via-card/50 to-transparent opacity-60"
+                />
+
+                {/* overlay links */}
+                <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 hover:opacity-100 transition-opacity duration-300 ">
+                  <a href={project.github}
+                    className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all"
+                  >
+                    <BsGithub className="w-5 h-5" />
+                  </a>
+                </div>
+              </div>
+
+              {/* content */}
+              <div className="p-6 space-y-4 z-10">
+                <div className="flex items-start justify-between">
+                  <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
+                    {project.title}
+                  </h3>
+                  <ArrowUpRight
+                    className="w-5 h-5 text-muted-foreground group-hover:text-priamry
+                      group-hover:translate-x-1 group-hover:translate-y-1 transition-all "
+                  />
+                </div>
+                <p className="text-muted-foreground text-sm">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag, tagIdx) => (
+                    <span
+                      key={tagIdx}
+                      className=" px-4 py-1.5 rounded-full bg-surface text-xs font-medium border border-border hover:border-primary/50 hover:text-primary transition-all delay-300"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* view all CTA */}
+        <div className="text-center mt-12 animate-fade-in animation-delay-500">
+          <AnimatedBodrderButton>
+            View All Projects
+            <ArrowUpRight className="w-5 h-5"/>
+          </AnimatedBodrderButton>
         </div>
       </div>
     </section>
