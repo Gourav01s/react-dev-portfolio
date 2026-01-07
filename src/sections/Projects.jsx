@@ -76,18 +76,18 @@ const Projects = () => {
               style={{ animationDelay: `${(idx + 1) * 100}ms` }}
             >
               {/* image */}
-              <div className="reative overflow-hidden aspect-video">
+              <div className="relative overflow-hidden aspect-video">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-tarnsform duration-700 group-hover:scale-110 "
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 "
                 />
                 <div
                   className="absolute inset-0 bg-linear-to-t from-card via-card/50 to-transparent opacity-60"
                 />
 
                 {/* overlay links */}
-                <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 hover:opacity-100 transition-opacity duration-300 ">
+                <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ">
                   <a href={project.github}
                     className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all"
                   >
@@ -103,7 +103,7 @@ const Projects = () => {
                     {project.title}
                   </h3>
                   <ArrowUpRight
-                    className="w-5 h-5 text-muted-foreground group-hover:text-priamry
+                    className="w-5 h-5 text-muted-foreground group-hover:text-primary
                       group-hover:translate-x-1 group-hover:translate-y-1 transition-all "
                   />
                 </div>

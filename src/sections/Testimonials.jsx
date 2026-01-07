@@ -1,9 +1,57 @@
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { useState } from "react";
+import { useCarousel } from "../components/useCarousel";
 
+const testimonials = [
+  {
+    quote:
+      "GS is one of the most talented engineers I've worked with. His attention to detail and ability to translate complex requirements into elegant solutions is remarkable.",
+    author: "Sarah Chen",
+    role: "CTO, Tech Innovators Inc.",
+    avatar:
+      "https://images.unsplash.com/photo",
+  },
+  {
+    quote:
+      "Working with GS was a game-changer for our project. He delivered ahead of schedule with code quality that set a new standard for our team.",
+    author: "Michael Rodriguez",
+    role: "Product Manager, Digital Solutions",
+    avatar:
+      "https://images.unsplash.com/photo-",
+  },
+  {
+    quote:
+      "GS's expertise in React and TypeScript helped us rebuild our entire frontend in record time. His architectural decisions continue to pay dividends.",
+    author: "Emily Watson",
+    role: "Engineering Lead, StartUp Labs",
+    avatar:
+      "https://images.unsplash.com/photo-",
+  },
+  {
+    quote:
+      "Not only is GS technically brilliant, but he's also a fantastic communicator and team player. He elevated everyone around him.",
+    author: "David Kim",
+    role: "CEO, Innovation Hub",
+    avatar:
+      "https://images.unsplash.com/photo-",
+  },
+];
 
 const Testimonials = () => {
+
+  const { activeIdx, next, previous, goTo } = useCarousel(testimonials.length);
+
+  // const[activeIdx, setActiveIdx] = useState(0);
+  // const next = () => {
+  //   setActiveIdx((prev) => (prev + 1) % testimonials.length);
+  // };
+  // const previous = () => {
+  //   setActiveIdx((prev) => (prev - 1 + Testimonials.length) % Testimonials.length);
+  // };
+
+
   return (
-    <section id="about" className="py-32 realtive overflow-hidden">
+    <section id="about" className="py-32 relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 w-200 h-200 bg-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
       <div className="container mx-auto px-6 relative z-10 ">
         {/* section header */}
@@ -25,42 +73,57 @@ const Testimonials = () => {
           <div className="relative">
             {/* main testimonial */}
             <div className="glass p-8 rounded-3xl md:p-12 glow-border animate-fade-in animation-delay-200">
-              <div className="absolute -top-4 left-8 w-12 h-12 rounded-full bg-primary items-center justify-center">
-                <Quote className="h-6 w-6 text-primary-foreground"/>
+              <div className="absolute -top-4 left-8 w-12 h-12 rounded-full bg-primary flex items-center justify-center">
+                <Quote className="h-6 w-6 text-primary-foreground" />
               </div>
               <blockquote className="text-xl md:text-2xl font-medium leading-relaxed mb-8 pt-4">
-                "{testimonials[0].quote}"
+                "{testimonials[activeIdx].quote}"
               </blockquote>
               <div className="flex items-center gap-4">
-                <img
-                  src=""
-                  alt=""
+                {/* <img
+                  alt={testimonials[activeIdx].author}
                   className="w-14 h-14 rounded-full object-cover ring-2 ring-primary/20"
-                />
+                /> */}
                 <div>
-                  <div className="font-semibold">{testimonials[0].author }</div>
-                  <div className="text-sm text-muted-foreground">{testimonials[0].role }</div>
+                  <div className="font-semibold">
+                    {testimonials[activeIdx].author}
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    {testimonials[activeIdx].role}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* testimonial navigation */}
-          <div>
-            <button>
-              <ChevronLeft/>
+          <div className="flex items-center justify-center gap-4 mt-8">
+            <button
+              className="p-3 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all"
+              onClick={previous}
+            >
+              <ChevronLeft />
             </button>
 
-            <div>
+            <div className="flex items-center justify-center gap-2">
               {testimonials.map((_, idx) => (
-                <button/>
+                <button
+                  key={idx}
+                  onClick={() => goTo(idx)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    idx === activeIdx
+                      ? "w-8 bg-primary"
+                      : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                  }`}
+                />
               ))}
+              <button
+                className="p-3 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all"
+                onClick={next}
+              >
+                <ChevronRight />
+              </button>
             </div>
-            
-            <button>
-              <ChevronRight/>
-            </button>
-
           </div>
         </div>
       </div>
