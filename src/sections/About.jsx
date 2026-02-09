@@ -46,45 +46,58 @@ const About = () => {
 
             <div className="space-y-4 text-muted-foreground animate-fade-in animation-delay-200">
               <p>
-                I'm a passionate software engineer with over 5 years of
-                experience crafting digital products that make a difference. My
-                journey started with a curiosity for how things work on the web,
-                and it has evolved into a deep expertise in modern frontend
-                technologies.
+                I’m a computer science student and aspiring software developer
+                with hands-on experience building web applications using modern
+                JavaScript technologies. My journey into development started
+                with curiosity about how web interfaces work, and it has grown
+                into a focused effort to build responsive, real-world projects
+                using the MERN stack.
               </p>
               <p>
-                I specialize in React, Next.js, and TypeScript, building
-                everything from sleek landing pages to complex enterprise
-                applications. My approach combines technical excellence with a
-                keen eye for design and user experience.
+                I primarily work with React, JavaScript, and Tailwind CSS to
+                create clean, responsive user interfaces, and I have basic
+                experience with Node.js and MongoDB for backend functionality.
+                My projects range from real-time applications to structured
+                UI-focused websites, helping me understand both frontend
+                architecture and user experience.
               </p>
               <p>
-                When I'm not coding, you'll find me exploring new technologies,
-                contributing to open-source projects, or sharing knowledge with
-                the developer community.
+                I focus on writing clean, maintainable code and continuously
+                improving through project building, peer code reviews, and
+                coding practice. I’m currently working on strengthening my
+                full-stack skills and problem-solving abilities.
+              </p>
+              <p>
+                When I'm not coding, I spend time exploring new tools in the
+                JavaScript ecosystem, refining my projects, and learning better
+                development practices through real-world experimentation.
               </p>
             </div>
 
             <div className="glass rounded-2xl p-6 glow-border aniamte-fade-in animation-delay-300">
               <p className="text-lg font-medium italic text-foreground">
-                "My mission is to create digital experiences that are not just
-                functional, but truly delightful — products that users love to
-                use and developers love to maintain."
+                “My goal is to grow into a well-rounded software engineer by
+                building practical, user-focused applications and continuously
+                improving my technical depth.”
               </p>
             </div>
           </div>
 
           {/* Right column - hilights */}
           <div className="grid sm:grid-cols-2 gap-2">
-            {highlights.map((item,idx) => (
-              <div key={idx} className="glass p-6 rounded-2xl animate-fade-in "
-                style={{ naimationDelay: `${(idx +1) * 100}ms`}}  
+            {highlights.map((item, idx) => (
+              <div
+                key={idx}
+                className="glass p-6 rounded-2xl animate-fade-in "
+                style={{ naimationDelay: `${(idx + 1) * 100}ms` }}
               >
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 hover:bg-primary/20">
-                  <item.icon/>
+                  <item.icon />
                 </div>
                 <h3 className="text-lg font-semibold mb-2">{item.title} </h3>
-                <p className="text-sm text-muted-foreground">{item.description}</p>
+                <p className="text-sm text-muted-foreground">
+                  {item.description}
+                </p>
               </div>
             ))}
           </div>

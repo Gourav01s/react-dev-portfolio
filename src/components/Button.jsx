@@ -10,9 +10,11 @@ const Button = ({ className="", size='default', children }) => {
   const classes = `${baseClass} ${sizeClass[size]} ${className}`
   return (
     <button className={classes}>
+      
       <span className="relative flex items-center justify-center gap-2">
         {children}
       </span>
+      
     </button>
   )
 };

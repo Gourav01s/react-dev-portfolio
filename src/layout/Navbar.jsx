@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 const navLinks = [
   { href: "#about", label: "About" },
   { href: "#projects", label: "Projects" },
-  { href: "#experience", label: "Experience" },
-  { href: "#testimonials", label: "Testimonials" },
+  { href: "#projects", label: "Experience" },
+  // { href: "#testimonials", label: "Testimonials" },
 ];
 
 const Navbar = () => {
@@ -30,7 +30,7 @@ const Navbar = () => {
       } z-50`}
     >
       <nav className="container mx-auto px-6 flex items-center justify-between">
-        <a className="text-xl font-bold tracking-tight hover:text-primary  ">
+        <a className="text-xl font-bold tracking-tight hover:text-primary  " href="#hero">
           GS <span className="text-primary">.</span>
         </a>
 
@@ -52,9 +52,10 @@ const Navbar = () => {
 
         {/* CTA button */}
         <div className="hidden md:block">
+          <a href="#contact">
           <Button size="sm" onClick={() => setIsMobileMenuOpen(false)}>
             Contect me
-          </Button>
+          </Button></a>
         </div>
 
         {/* mobile menu button */}
@@ -79,7 +80,12 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
-            <Button>Contect me</Button>
+            <a href="#contact">
+
+            <Button>
+              Contact me
+            </Button>
+            </a>
           </div>
         </div>
       )}

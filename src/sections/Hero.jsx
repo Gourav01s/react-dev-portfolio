@@ -19,10 +19,10 @@ const skills = [
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
         <img
-          src="/hero-bg.png"
+          src="/hero-bg.jpg"
           alt="background image"
           className="w-full h-full object-cover opacity-40"
         />
@@ -74,30 +74,32 @@ const Hero = () => {
               </h1>
               <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-300">
                 Hi, I'm Gourav - Frontend Software Engineer building sleek,
-                scalable web apps with React, Tailwind CSS, and JavaScript
-                — where performance meets great UX.
+                scalable web apps with React, Tailwind CSS, and JavaScript —
+                where performance meets great UX.
               </p>
             </div>
 
             {/* CTA buttons */}
             <div className="flex flex-wrap gap-4 animate-fade-in aniamtion-delay-500">
-              <Button size="lg" className="">
-                Contect me <ArrowRight className="w-5 h-5" />
-              </Button>
+              {/* <a href="#contact"> */}
+                <Button size="lg" className="flex ">
+                  <a href="#contact">Contact me</a>
+                  <ArrowRight className="w-5 h-5" />
+                </Button>
 
-              <AnimatedBodrderButton>
+              {/* <AnimatedBodrderButton>
                 <Download className="w-5 h-5" />
                 Download Resume
-              </AnimatedBodrderButton>
+              </AnimatedBodrderButton> */}
             </div>
 
             {/* social links */}
             <div className="flex items-center gap-4 animate-fade-in animation-delay-400">
               <span className="text-sm text-muted-foreground ">follow me:</span>
               {[
-                { icon: BsLinkedin, href: "#" },
-                { icon: BsTwitterX, href: "#" },
-                { icon: BsGithub, href: "#" },
+                // { icon: BsLinkedin, href: "" },
+                // { icon: BsTwitterX, href: "#" },
+                { icon: BsGithub, href: "https://github.com/Gourav01s" },
               ].map((social, index) => (
                 <a
                   key={index}
@@ -116,7 +118,7 @@ const Hero = () => {
             <div className="relative max-w-md mx-auto">
               <div className="realtive glass rounded-3xl p-2 glow-border">
                 <img
-                  src="/profile-photo.jpg"
+                  src="/profile-photo-1.jfif"
                   alt="profile photo"
                   className="w-full aspect-4/5 object-cover rounded-2xl "
                 />
